@@ -1,0 +1,28 @@
+@use "functions" as f;
+@use "mixins" as m;
+/* grid layout */
+.hero-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: f.rem(40);
+}
+
+.about-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: f.rem(40);
+}
+
+.recipie-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: f.rem(30);
+}
+
+// flex
+.follower-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: f.rem(30);
+}

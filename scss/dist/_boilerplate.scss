@@ -1,0 +1,33 @@
+@use "variables" as v;
+@use "functions" as f;
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+body {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: v.$font;
+  line-height: 1.3;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: v.$text-color;
+}
+i {
+  display: inline-block;
+  margin-right: f.rem(10);
+}

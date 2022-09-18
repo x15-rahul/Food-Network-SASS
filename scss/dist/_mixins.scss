@@ -1,0 +1,34 @@
+@use "functions" as f;
+@use "variables" as v;
+// sass map
+
+$breakpoints: (
+  "xs": f.em(480),
+  "sm": f.em(576),
+  "md": f.em(768),
+  "lg": f.em(992),
+  "xlg": f.em(1200),
+);
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+@mixin paragraph {
+  font-size: clamp(f.rem(16), f.rem(16) + 0.5vw, f.rem(22));
+  margin-top: f.rem(20);
+  color: v.$hero-paragraph-color;
+}
+
+@mixin cta-btn {
+  background: v.$background-color;
+  box-shadow: 0px 2px 30px rgba(252, 143, 73, 0.5);
+  border-radius: f.rem(100);
+  display: inline-block;
+  padding: f.rem(12) f.rem(20);
+  color: #fff;
+  font-weight: 600;
+  margin-top: f.rem(20);
+}

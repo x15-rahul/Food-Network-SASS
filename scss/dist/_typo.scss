@@ -1,0 +1,213 @@
+@use "functions" as f;
+@use "variables" as v;
+@use "mixins" as m;
+// placeholder
+%section-padding {
+  width: min(100% - f.rem(20), f.rem(1100));
+  padding: f.rem(40) 0;
+  margin-inline: auto;
+}
+header {
+  height: f.rem(80);
+  background: v.$background-color;
+  font-weight: 500;
+  .nav-bar {
+    @extend %section-padding;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    // border: 2px solid;
+    ul {
+      li {
+        display: inline-block;
+        margin-right: f.rem(5);
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    @include m.breakpoint-up(md) {
+      ul {
+        li {
+          margin-right: f.rem(8);
+        }
+      }
+    }
+    @include m.breakpoint-up(lg) {
+      ul {
+        li {
+          margin-right: f.rem(16);
+        }
+      }
+    }
+  }
+}
+#hero {
+  text-align: center;
+
+  .hero-grid-container {
+    @extend %section-padding;
+    .hero-text {
+      h1 {
+        color: v.$hero-heading-color;
+        font-size: clamp(f.rem(22), f.rem(22) + 2vw, f.rem(50));
+        font-weight: 700;
+        span {
+          color: v.$skip-color;
+        }
+      }
+      p {
+        color: v.$hero-paragraph-color;
+        @include m.paragraph;
+      }
+      a {
+        @include m.cta-btn;
+      }
+    }
+    .hero-image {
+      img {
+        width: 100%;
+      }
+    }
+    // media queries
+    @include m.breakpoint-up(md) {
+      .hero-image {
+        img {
+          width: 70%;
+        }
+      }
+    }
+    @include m.breakpoint-up(lg) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto;
+      align-items: center;
+    }
+  }
+}
+
+#about {
+  background: url("/images/shapes/7.png") no-repeat center / cover;
+  text-align: center;
+  .about-grid-container {
+    @extend %section-padding;
+    .about-text {
+      h2 {
+        color: v.$h2-color;
+        font-size: clamp(f.rem(18), f.rem(18) + 1vw, f.rem(40));
+        font-weight: 700;
+      }
+      p {
+        @include m.paragraph;
+        color: v.$hero-paragraph-color;
+      }
+      a {
+        @include m.cta-btn;
+      }
+    }
+    .about-image {
+      img {
+        width: 70%;
+      }
+    }
+    @include m.breakpoint-up(md) {
+      .about-image {
+        img {
+          width: 50%;
+        }
+      }
+    }
+    @include m.breakpoint-up(lg) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto;
+      align-items: center;
+      .about-text {
+        order: 2;
+      }
+    }
+  }
+}
+
+#recipie {
+  @extend %section-padding;
+  text-align: center;
+  h2 {
+    color: v.$h2-color;
+  }
+  p {
+    @include m.paragraph;
+    color: v.$hero-paragraph-color;
+    margin-bottom: f.rem(20);
+  }
+  .recipie-card {
+    text-align: left;
+    color: v.$text-color;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+    padding: f.rem(15);
+    img {
+      width: 100%;
+    }
+    .recipie-details {
+      margin-top: f.rem(20);
+      h3 {
+        font-size: clamp(f.rem(16), f.rem(16) + 0.5vw, f.rem(22));
+        font-weight: 800;
+      }
+      p {
+        font-size: clamp(f.rem(14), f.rem(14) + 0.5vw, f.rem(16));
+      }
+    }
+  }
+  @include m.breakpoint-up(lg) {
+    .recipie-grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+#followers {
+  @extend %section-padding;
+  .follower-container {
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+    border-radius: f.rem(20);
+    padding: f.rem(40) 0;
+
+    h2 {
+      font-size: clamp(f.rem(18), f.rem(18) + 1.5vw, f.rem(48));
+      font-weight: 800;
+    }
+    p {
+      @include m.paragraph;
+      margin-top: f.rem(10);
+    }
+  }
+  @include m.breakpoint-up(lg) {
+    .follower-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+}
+
+footer {
+  //   @extend %section-padding;
+  padding: f.rem(40) 0;
+  text-align: center;
+  background: #000;
+  h5 {
+    color: v.$hero-heading-color;
+    span {
+      color: v.$skip-color;
+    }
+  }
+  p {
+    @include m.paragraph;
+    font-size: clamp(f.rem(12), f.rem(12) + 0.25vw, f.rem(16));
+    color: #fff;
+  }
+}
